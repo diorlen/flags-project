@@ -1,0 +1,47 @@
+.Header {
+  max-width: 100%;
+  background: var(--white);
+  margin-bottom: 1em;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+.Title {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.Content {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Content a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.dark-mode {
+  padding-right: 10px;
+  margin-right: 10px;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.dark-mode p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .Header {
+    margin-bottom: 3em;
+  }
+  .Content h1 {
+    font-size: 24px;
+  }
+  .dark-mode p {
+    font-size: 1rem;
+  }
+} ;

@@ -1,0 +1,11 @@
+.SearchClose {
+  display: flex;
+  flex-direction: row;
+}
+
+.SearchClose i {
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.05);
+}
