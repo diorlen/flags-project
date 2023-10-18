@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import "./country.css";
+import numeral from "numeral";
 
 function Country({ flag, name, population, region, capital, alpha3Code }) {
   const history = useHistory();
@@ -15,7 +16,7 @@ function Country({ flag, name, population, region, capital, alpha3Code }) {
         <h2>{name?.common}</h2>
         <p>
           <strong>Population: </strong>
-          {population}{" "}
+          {numeral(population).format("0,0")}{" "}
         </p>
         <p>
           <strong>Region: </strong>

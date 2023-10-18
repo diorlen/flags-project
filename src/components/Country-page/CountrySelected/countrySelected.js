@@ -12,7 +12,7 @@ function CountrySelected({
   topLevelDomain,
   currencies,
   languages,
-  borders = [],
+  borders,
 }) {
   return (
     <div className="countrySelected">

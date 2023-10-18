@@ -37,6 +37,7 @@ function CountryPage({ match, history }) {
       subregion,
       currencies,
       languages,
+      borders,
     }) => {
       return (
         <CountrySelected
@@ -50,6 +51,7 @@ function CountryPage({ match, history }) {
           key={cca3}
           currencies={currencies}
           languages={languages}
+          borders={borders}
           tabIndex="0"
         ></CountrySelected>
       );

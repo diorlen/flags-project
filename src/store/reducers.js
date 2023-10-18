@@ -10,7 +10,17 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_COUNTRY_LIST: {
-      return { ...state, countryList: action.payload };
+      const listOfSortedCountries = action.payload;
+      listOfSortedCountries.sort(function (a, b) {
+        if (a.cca2 > b.cca2) {
+          return 1;
+        }
+        if (a.cca2 < b.cca2) {
+          return -1;
+        }
+        return 0;
+      });
+      return { ...state, countryList: listOfSortedCountries };
     }
     case actionTypes.FILTER_COUNTRY_REGION: {
       const regionSelected = action.payload;

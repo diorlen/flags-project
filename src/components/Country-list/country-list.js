@@ -33,10 +33,6 @@ const CountryList = () => {
       });
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(countryList);
-  }, [countryList]);
-
   const countries = countryList.map(
     ({ name, flags, population, region, capital, cca3 }) => {
       return (
