@@ -1,0 +1,10 @@
+.container-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 50%);
+}
+@media screen and (max-width: 780px) {
+  .container-body {
+    grid-template-columns: repeat(auto-fill, 270px);
+    padding: 0.2em 3em;
+  }
+}

@@ -20,7 +20,7 @@ function Search() {
   };
 
   return (
-    <div>
+    <div className="Search-container">
       <div className="Search">
         {countryListByName.length === 0 && inputValue && (
           <p>
