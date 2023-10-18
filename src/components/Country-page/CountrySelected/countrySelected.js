@@ -1,6 +1,7 @@
 import React from "react";
 import "./countrySelected.css";
 import numeral from "numeral";
+import { useSelector } from "react-redux";
 
 function CountrySelected({
   flag,
@@ -9,11 +10,15 @@ function CountrySelected({
   region,
   subregion,
   capital,
-  topLevelDomain,
   currencies,
   languages,
   borders,
 }) {
+  const countryList = useSelector((state) => state.countryList);
+  const handleClick = (item) => {
+    window.location.replace(`/country/${item}`);
+  };
+
   return (
     <div className="countrySelected">
       <img className="FlagCountry" src={flag?.png} alt="" />
@@ -42,9 +47,6 @@ function CountrySelected({
 
           <div>
             <p>
-              <strong>Top Level Domain: </strong> {topLevelDomain}{" "}
-            </p>
-            <p>
               <strong>Currencies: </strong>{" "}
               {currencies &&
                 Object.values(currencies).map((item) => (
@@ -61,11 +63,22 @@ function CountrySelected({
         </div>
         <p className="borders">
           <strong>Border Countries: </strong>{" "}
-          {borders.map((item) => (
-            <span key={item} className="border-item">
-              {item}{" "}
-            </span>
-          ))}{" "}
+          {borders.map((item) =>
+            countryList.map((data) => {
+              if (data.cca3 === item) {
+                return (
+                  <span
+                    key={item}
+                    className="border-item"
+                    onClick={() => handleClick(item)}
+                  >
+                    {data.name.common}
+                    {data.flag}
+                  </span>
+                );
+              }
+            })
+          )}
         </p>
       </div>
     </div>

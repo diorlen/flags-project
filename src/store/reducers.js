@@ -44,7 +44,9 @@ const reducer = (state = initialState, action) => {
         list = state.countryList;
       }
       const countryListByName = list.filter((country) =>
-        country.name.toLowerCase().includes(action.payload.toLowerCase())
+        country?.name?.common
+          .toLowerCase()
+          .includes(action.payload.toLowerCase())
       );
       return { ...state, countryListByName };
     }

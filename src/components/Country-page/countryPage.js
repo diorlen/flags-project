@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../Wrapper/wrapper";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import CountrySelected from "./CountrySelected/countrySelected";
+import * as actions from "../../store/index";
 import "./countryPage.css";
 
 function CountryPage({ match, history }) {
-  let DBcountry = useSelector((state) =>
-    state.countryList.find((item) => item.alpha2Code === match.params.id)
-  );
-  const [country, setCountry] = useState(DBcountry);
+  const dispatch = useDispatch();
+  const [country, setCountry] = useState();
 
   useEffect(() => {
     if (!country) {
@@ -20,10 +19,21 @@ function CountryPage({ match, history }) {
           setCountry(data);
         });
     }
-  }, [country, match.params.id]);
+
+    fetch("https://restcountries.com/v3.1/all")
+      .then((response) => {
+        return response.json();
+      })
+      .then((list) => {
+        dispatch(actions.setCountryList(list));
+      })
+      .catch(() => {
+        console.log("Error");
+      });
+  }, [match.params.id, dispatch, country]);
 
   const handleClick = () => {
-    history.goBack();
+    history.push("/");
   };
 
   const countries = country?.map(
