@@ -1,14 +1,9 @@
 .CountryList {
-  display: flex;
-  /* grid-row-gap: 2.3em;
-  grid-column-gap: 75px;
+  display: grid;
   grid-template-columns: repeat(auto-fill, 270px);
+  grid-row-gap: 2.3em;
+  grid-column-gap: 75px;
   background: var(--background);
   justify-content: center;
-  padding: 3em 0; */
-}
-
-.test {
-  color: aqua;
-  background-color: black;
+  padding: 3em 0;
 }

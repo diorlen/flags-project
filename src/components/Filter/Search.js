@@ -18,7 +18,6 @@ function Search() {
     setInputValue("");
     dispatch(actions.filterCountryName(""));
   };
-  console.log(countryListByName);
 
   return (
     <div>

@@ -8,7 +8,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case actionTypes.SET_COUNTRY_LIST: {
       return { ...state, countryList: action.payload };

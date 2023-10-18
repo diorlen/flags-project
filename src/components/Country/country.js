@@ -1,18 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router";
-import slugify from "slugify";
 import "./country.css";
 
 function Country({ flag, name, population, region, capital, alpha3Code }) {
   const history = useHistory();
   const handleClick = () => {
-    history.push(`/country/${slugify(alpha3Code)}`);
+    history.push(`/country/${alpha3Code}`);
   };
+
   return (
-    <div className="Country" onClick={handleClick} tabindex="0">
-      <img loading="lazy" src={flag} alt="" />
+    <div className="Country" onClick={handleClick} tabIndex="0">
+      <img loading="lazy" src={flag?.png} alt="" />
       <div className="details">
-        <h2>{name}</h2>
+        <h2>{name?.common}</h2>
         <p>
           <strong>Population: </strong>
           {population}{" "}

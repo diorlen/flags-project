@@ -4,10 +4,9 @@
   text-align: left;
   border-radius: 5px;
 }
-.details:hover {
+.Country:hover {
   border-radius: 0 0 5px 5px;
   border: 1px solid var(--black);
-  border-top: none;
 }
 
 img {
@@ -23,6 +22,7 @@ img {
   border-top: none;
   transition: 0.3s border;
   background: var(--white);
+  border-radius: 0 0 5px 5px;
 }
 h2 {
   margin: 0;

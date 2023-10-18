@@ -15,15 +15,13 @@ const CountryList = () => {
       return countryListByRegion;
     }
     if (countryListByName.length > 0) {
-      console.log("Aqui");
       return countryListByName;
     }
     return state.countryList;
   });
 
-  console.log(countryList);
   useEffect(() => {
-    fetch("https://restcountries.eu/rest/v2/all")
+    fetch("https://restcountries.com/v3.1/all")
       .then((response) => {
         return response.json();
       })
@@ -40,17 +38,17 @@ const CountryList = () => {
   }, [countryList]);
 
   const countries = countryList.map(
-    ({ name, flag, population, region, capital, alpha3Code }) => {
+    ({ name, flags, population, region, capital, cca3 }) => {
       return (
         <Country
-          flag={flag}
+          flag={flags}
           name={name}
           population={population}
           region={region}
           capital={capital}
-          alpha3Code={alpha3Code}
-          key={alpha3Code}
-          tabindex="0"
+          alpha3Code={cca3}
+          key={cca3}
+          tabIndex="0"
         ></Country>
       );
     }
@@ -58,7 +56,6 @@ const CountryList = () => {
 
   return (
     <Wrapper>
-      <p className="test">Algo</p>
       <div className="CountryList"> {countries}</div>
     </Wrapper>
   );

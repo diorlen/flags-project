@@ -1,34 +1,33 @@
 import React from "react";
 import "./countrySelected.css";
+import numeral from "numeral";
 
 function CountrySelected({
   flag,
-  alpha3Code,
   name,
-  nativeName,
   population,
   region,
   subregion,
   capital,
   topLevelDomain,
-  currencies = [],
-  languages = [],
+  currencies,
+  languages,
   borders = [],
 }) {
   return (
     <div className="countrySelected">
-      <img className="FlagCountry" src={flag} alt="" />
+      <img className="FlagCountry" src={flag?.png} alt="" />
       <div>
         <div className="grid">
           <div>
-            <h2> {name} </h2>
+            <h2> {name?.common} </h2>
             <p>
               <strong>Native Name: </strong>
-              {nativeName}
+              {name?.official}
             </p>
             <p>
               <strong>Population: </strong>
-              {population}{" "}
+              {numeral(population).format("0,0")}{" "}
             </p>
             <p>
               <strong>Region: </strong> {region}{" "}
@@ -47,14 +46,15 @@ function CountrySelected({
             </p>
             <p>
               <strong>Currencies: </strong>{" "}
-              {currencies.map((item) => (
-                <span key={item}>{item.name} </span>
-              ))}{" "}
+              {currencies &&
+                Object.values(currencies).map((item) => (
+                  <span key={item}>{item.name} </span>
+                ))}{" "}
             </p>
             <p className="languages">
               <strong>Languagues: </strong>{" "}
-              {languages.map((item) => (
-                <span key={item}>{item.name} </span>
+              {Object.values(languages).map((item) => (
+                <span key={item}>{item} </span>
               ))}{" "}
             </p>
           </div>
