@@ -3,6 +3,7 @@
   box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.03);
   text-align: left;
   border-radius: 5px;
+  background: var(--white);
 }
 .Country:hover {
   border-radius: 0 0 5px 5px;
@@ -21,7 +22,6 @@ img {
   border: 1px solid transparent;
   border-top: none;
   transition: 0.3s border;
-  background: var(--white);
   border-radius: 0 0 5px 5px;
 }
 h2 {

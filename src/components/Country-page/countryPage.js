@@ -5,7 +5,7 @@ import CountrySelected from "./CountrySelected/countrySelected";
 import * as actions from "../../store/index";
 import "./countryPage.css";
 
-function CountryPage({ match, history }) {
+function CountryPage({ match }) {
   const dispatch = useDispatch();
   const [country, setCountry] = useState();
 
@@ -33,7 +33,7 @@ function CountryPage({ match, history }) {
   }, [match.params.id, dispatch, country]);
 
   const handleClick = () => {
-    history.push("/");
+    window.location.replace("/");
   };
 
   const countries = country?.map(
@@ -75,7 +75,20 @@ function CountryPage({ match, history }) {
           <i className="fas fa-long-arrow-alt-left" />
           Back
         </button>
-        {countries}
+        {countries ? (
+          countries
+        ) : (
+          <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        )}
       </Wrapper>
     </div>
   );

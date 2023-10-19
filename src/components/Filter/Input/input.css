@@ -20,4 +20,5 @@ i {
   font-size: 0.7em;
   outline: 0;
   background: var(--white);
+  color: var(--black);
 }
