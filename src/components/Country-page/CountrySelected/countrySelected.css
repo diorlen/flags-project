@@ -11,7 +11,7 @@
 }
 .grid {
   display: grid;
-  grid-row-gap: 1em;
+  grid-gap: 1em;
 }
 .border-item {
   padding: 0.5em 2em;

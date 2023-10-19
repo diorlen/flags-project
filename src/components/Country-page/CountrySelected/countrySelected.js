@@ -23,9 +23,9 @@ function CountrySelected({
     <div className="countrySelected">
       <img className="FlagCountry" src={flag?.png} alt="" />
       <div>
+        <h1> {name?.common} </h1>
         <div className="grid">
           <div>
-            <h2> {name?.common} </h2>
             <p>
               <strong>Native Name: </strong>
               {name?.official}
