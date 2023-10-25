@@ -63,21 +63,25 @@ function CountrySelected({
         </div>
         <p className="borders">
           <strong>Border Countries: </strong>{" "}
-          {borders.map((item) =>
-            countryList.map((data) => {
-              if (data.cca3 === item) {
-                return (
-                  <span
-                    key={item}
-                    className="border-item"
-                    onClick={() => handleClick(item)}
-                  >
-                    {data.name.common}
-                    {data.flag}
-                  </span>
-                );
-              }
-            })
+          {borders ? (
+            borders.map((item) =>
+              countryList.map((data) => {
+                if (data.cca3 === item) {
+                  return (
+                    <span
+                      key={item}
+                      className="border-item"
+                      onClick={() => handleClick(item)}
+                    >
+                      {data.name.common}
+                      {data.flag}
+                    </span>
+                  );
+                }
+              })
+            )
+          ) : (
+            <span>-</span>
           )}
         </p>
       </div>
